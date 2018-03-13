@@ -1,0 +1,18 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<style lang="postcss">
+/** TODO **/
+</style>
+
+<template>
+  <view> TODO </view>
+</template>
+
+<script>
+Component({
+})
+</script>

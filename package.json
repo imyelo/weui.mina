@@ -1,0 +1,40 @@
+{
+  "name": "@tinajs/weui.mina",
+  "version": "0.0.0",
+  "description": "The WeUI as mina-components",
+  "main": "dist/index.mina",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "gulp"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "yelo",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "tinajs/weui.mina",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/tinajs/weui.mina/issues"
+  },
+  "homepage": "https://github.com/tinajs/weui.mina#readme",
+  "devDependencies": {
+    "@tinajs/gulp-mina": "^0.1.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-json-minify": "^1.2.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-uglify": "^3.0.0",
+    "merge2": "^1.2.0",
+    "precss": "^2.0.0"
+  }
+}
