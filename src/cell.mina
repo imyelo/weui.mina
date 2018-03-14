@@ -1,0 +1,52 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-cell {{ access ? 'weui-cell_access' : '' }}">
+    <view class="weui-cell__hd">
+      <slot name="header" />
+    </view>
+    <view class="weui-cell__bd">
+      <slot name="body" />
+    </view>
+    <view class="weui-cell__ft {{ access ? 'weui-cell__ft_in-access' : '' }}">
+      <slot name="footer" />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    access: {
+      type: Boolean,
+      value: false,
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-cell.wxss';
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-access.wxss';
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  border-top: 1px solid hsla(0, 0%, 85%, 0.5);
+}
+
+/** not supported by wechat yet **/
+/**
+:host(:first-child) {
+  border-top: none;
+}
+**/
+
+</style>

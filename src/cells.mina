@@ -1,0 +1,37 @@
+<config>
+{
+  "component": true,
+  "usingComponents": {
+    "weui-cell": "./cell.mina"
+  }
+}
+</config>
+
+<template>
+  <view>
+    <view class="weui-cells__title">{{ title }}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <slot />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    title: {
+      type: String,
+      value: '',
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-cell.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

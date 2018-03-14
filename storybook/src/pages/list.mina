@@ -1,0 +1,83 @@
+<config>
+{
+  "usingComponents": {
+    "weui-cells": "../../../lib/cells.mina",
+    "weui-cell": "../../../lib/cell.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">List</view>
+      <view class="page__desc">列表</view>
+    </view>
+    <view class="page__bd">
+      <weui-cells title="带说明的列表项">
+        <weui-cell>
+          <view slot="body">标题文字</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="带图标、说明的列表项">
+        <weui-cell class="first-child">
+          <view slot="header"><image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;" /></view>
+          <view slot="body">标题文字</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+        <weui-cell>
+          <view slot="header"><image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;" /></view>
+          <view slot="body">标题文字</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="带跳转的列表项">
+        <weui-cell access="true">
+          <view slot="body">cell standard</view>
+        </weui-cell>
+        <weui-cell access="true">
+          <view slot="body">cell standard</view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="带说明、跳转的列表项">
+        <weui-cell access="true">
+          <view slot="body">cell standard</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+        <weui-cell access="true">
+          <view slot="body">cell standard</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="带图标、说明、跳转的列表项">
+        <weui-cell access="true">
+          <view slot="header"><image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;" /></view>
+          <view slot="body">cell standard</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+        <weui-cell access="true">
+          <view slot="header"><image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;" /></view>
+          <view slot="body">cell standard</view>
+          <view slot="footer">说明文字</view>
+        </weui-cell>
+      </weui-cells>
+    </view>
+  </view>
+</template>
+
+<script>
+var base64 = require('weui-wxss/dist/example/images/base64')
+
+Page({
+  onLoad: function(){
+    this.setData({
+      icon: base64.icon20,
+    })
+  },
+})
+</script>

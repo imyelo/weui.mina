@@ -1,0 +1,60 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <button class="weui-btn"
+    size="{{ size }}"
+    type="{{ type }}"
+    plain="{{ plain }}"
+    disabled="{{ disabled }}">
+    <slot />
+  </button>
+</template>
+
+<script>
+Component({
+  properties: {
+    size: {
+      type: String,
+      value: 'default',
+    },
+    type: {
+      type: String,
+      value: 'default',
+    },
+    plain: {
+      type: Boolean,
+      value: false,
+    },
+    disabled: {
+      type: Boolean,
+      value: false,
+    },
+    loading: {
+      type: Boolean,
+      value: false,
+    },
+    /** PRs Welcome **/
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-button/weui-button.wxss';
+
+:host {
+  @extend .weui-btn;
+  display: block;
+}
+
+/** not supported by wechat yet **/
+/**
+:host([size=mini]) {
+  display: inline-block;
+}
+**/
+
+</style>
