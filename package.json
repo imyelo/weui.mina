@@ -5,7 +5,8 @@
   "main": "dist/index.mina",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "gulp"
+    "start": "gulp",
+    "build": "gulp build"
   },
   "files": [
     "dist"
@@ -24,7 +25,7 @@
   },
   "homepage": "https://github.com/tinajs/weui.mina#readme",
   "devDependencies": {
-    "@tinajs/gulp-mina": "^0.1.0",
+    "@tinajs/gulp-mina": "^0.1.2",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "del": "^3.0.0",
@@ -35,6 +36,7 @@
     "gulp-postcss": "^7.0.0",
     "gulp-uglify": "^3.0.0",
     "merge2": "^1.2.0",
-    "precss": "^2.0.0"
+    "precss": "^2.0.0",
+    "run-sequence": "^2.2.1"
   }
 }

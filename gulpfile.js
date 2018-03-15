@@ -8,8 +8,9 @@ const cleanCSS = require('gulp-clean-css')
 const mina = require('@tinajs/gulp-mina')
 const merge = require('merge2')
 const precss = require('precss')
+const sequence = require('run-sequence')
 
-gulp.task('default', ['clean'], () => {
+gulp.task('compile', () => {
   return merge(
     [
       gulp.src('src/**/*.mina')
@@ -21,7 +22,10 @@ gulp.task('default', ['clean'], () => {
       gulp.src('src/**/*.png'),
     ]
   )
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./lib'))
 })
 
-gulp.task('clean', () => del(['./dist']))
+gulp.task('clean', () => del(['./lib']))
+
+gulp.task('build', (callback) => sequence('clean', 'compile', callback))
+gulp.task('default', ['build'], () => gulp.watch('src/**/*', ['compile']))
