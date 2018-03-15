@@ -1,9 +1,12 @@
 # weui.mina
-> The WeUI as mina-components
+> :green_apple: The WeUI as [mina single-file-component](https://tina.js.org/#/guide/single-file-component)
 
 [![npm](https://img.shields.io/npm/v/@tinajs/weui.mina.svg?style=flat-square)](https://www.npmjs.com/package/@tinajs/weui.mina)
 [![license](https://img.shields.io/github/license/tinajs/weui.mina.svg?style=flat-square)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+## Warning
+This project is very **WIP**, use at your own risk!
 
 ## Installation
 ```bash
