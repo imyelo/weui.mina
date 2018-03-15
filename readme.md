@@ -15,14 +15,14 @@ npm i --save @tinajs/weui.mina
 <config>
 {
   "usingComponents": {
-    "weui": "~@tinajs/weui.mina"
+    "weui-button": "~@tinajs/weui.mina/lib/button"
   }
 }
 </config>
 
 <template>
   <view>
-    <weui />
+    <weui-button size="mini">Button</weui-button>
   </view>
 </template>
 ```
