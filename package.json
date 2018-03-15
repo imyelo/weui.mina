@@ -2,14 +2,13 @@
   "name": "@tinajs/weui.mina",
   "version": "0.0.0",
   "description": "The WeUI as mina-components",
-  "main": "dist/index.mina",
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "gulp",
     "build": "gulp build"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "author": "yelo",
   "license": "MIT",
