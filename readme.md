@@ -27,5 +27,14 @@ npm i --save @tinajs/weui.mina
 </template>
 ```
 
+## Relateds
+- [WeUI](https://github.com/Tencent/weui)
+- [weui-wxss](https://github.com/Tencent/weui-wxss)
+- [mina single-file-component](https://tina.js.org/#/guide/single-file-component)
+- [mina-webpack](https://github.com/tinajs/mina-webpack)
+- [gulp-mina](https://github.com/tinajs/gulp-mina)
+
 ## License
 MIT &copy; [yelo](https://github.com/imyelo), 2018 - present
+
+[![](https://github.com/tinajs/assets/raw/master/images/banners/sponsored.png)](https://github.com/tinajs/tina)
