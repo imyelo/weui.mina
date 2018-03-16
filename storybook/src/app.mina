@@ -7,6 +7,7 @@
     "pages/home.mina",
     "pages/list.mina",
     "pages/button.mina",
+    "pages/input.mina",
   ],
 }
 </config>

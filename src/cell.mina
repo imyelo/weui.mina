@@ -5,7 +5,7 @@
 </config>
 
 <template>
-  <view class="weui-cell {{ access ? 'weui-cell_access' : '' }}">
+  <view class="weui-cell {{ access ? 'weui-cell_access' : '' }} {{ link ? 'weui-cell_link' : '' }}">
     <view class="weui-cell__hd">
       <slot name="header" />
     </view>
@@ -24,6 +24,10 @@ Component({
     multipleSlots: true,
   },
   properties: {
+    link: {
+      type: Boolean,
+      value: false,
+    },
     access: {
       type: Boolean,
       value: false,

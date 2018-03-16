@@ -1,0 +1,32 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-toptips weui-toptips_{{ type }}" wx:if="{{show}}">
+    <slot />
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    show: Boolean,
+    type: {
+      type: String,
+      value: 'default',
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-form/weui-form_common.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

@@ -1,0 +1,58 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-cell {{ radio || checkbox ? 'weui-check__label' : '' }} {{ vcode ? 'weui-cell_vcode' : '' }} {{ warn ? 'weui-cell_warn' : '' }} {{ switch ? 'weui-cell_switch' : '' }} {{ select ? 'weui-cell_select' : '' }} {{ input ? 'weui-cell_input' : ''}}">
+    <view class="weui-cell__hd {{ checkbox ? 'weui-check__hd_in-checkbox' : '' }} {{ select && selectPosition === 'after' ? 'weui-cell__hd_in-select-after' : '' }}">
+      <slot name="header" />
+    </view>
+    <view  class="weui-cell__bd {{ select && selectPosition === 'before' ? 'weui-cell__bd_in-select-before' : '' }}">
+      <slot name="body" />
+    </view>
+    <view class="weui-cell__ft">
+      <slot name="footer" />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    vcode: Boolean,
+    warn: Boolean,
+    radio: Boolean,
+    checkbox: Boolean,
+    'switch': Boolean,
+    select: Boolean,
+    selectPosition: String,
+    input: Boolean,
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-cell.wxss';
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-check.wxss';
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-form.wxss';
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-switch.wxss';
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  border-top: 1px solid hsla(0, 0%, 85%, 0.5);
+}
+
+/** not supported by wechat yet **/
+/**
+:host(:first-child) {
+  border-top: none;
+}
+**/
+
+</style>

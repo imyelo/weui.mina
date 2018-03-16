@@ -13,6 +13,7 @@
     <view class="weui-cells weui-cells_after-title">
       <slot />
     </view>
+    <view wx:if="{{ tips }}" class="weui-cells__tips">{{ tips }}</view>
   </view>
 </template>
 
@@ -20,6 +21,10 @@
 Component({
   properties: {
     title: {
+      type: String,
+      value: '',
+    },
+    tips: {
       type: String,
       value: '',
     },

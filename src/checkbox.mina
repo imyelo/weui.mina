@@ -1,0 +1,35 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view>
+    <!-- TODO: <checkbox class="weui-check" value="{{value}}" checked="{{checked}}" /> -->
+    <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!checked}}"></icon>
+    <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{checked}}"></icon>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    // TODO:
+    // value: Object,
+    checked: {
+      type: Boolean,
+      value: false,
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-check.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

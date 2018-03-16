@@ -1,0 +1,25 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-btn-area">
+    <slot />
+  </view>
+</template>
+
+<script>
+Component({
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-button/weui-button.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

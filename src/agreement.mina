@@ -1,0 +1,39 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-agree">
+    <view class="weui-agree__text">
+      <!-- TODO <checkbox class="weui-agree__checkbox" value="{{value}}" checked="{{checked}}" /> -->
+      <view class="weui-agree__checkbox-icon">
+        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{checked}}" />
+      </view>
+      <slot />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    // TODO:
+    // value: Object,
+    checked: {
+      type: Boolean,
+      value: false,
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-agree/weui-agree.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

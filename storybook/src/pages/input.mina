@@ -1,0 +1,290 @@
+<config>
+{
+  "usingComponents": {
+    "weui-toptips": "../../../lib/toptips.mina",
+    "weui-cells": "../../../lib/cells.mina",
+    "weui-cell": "../../../lib/cell.mina",
+    "weui-form-cell": "../../../lib/form_cell.mina",
+    "weui-radio": "../../../lib/radio.mina",
+    "weui-checkbox": "../../../lib/checkbox.mina",
+    "weui-label": "../../../lib/label.mina",
+    "weui-agreement": "../../../lib/agreement.mina",
+    "weui-button-area": "../../../lib/button_area.mina",
+    "weui-button": "../../../lib/button.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Input</view>
+      <view class="page__desc">表单输入</view>
+    </view>
+    <view class="page__bd">
+      <weui-toptips type="warn" show="{{showTopTips}}">错误提示</weui-toptips>
+
+      <weui-cells title="单选列表项">
+        <radio-group bindchange="radioChange">
+          <label wx:for="{{radioItems}}" wx:key="value">
+            <weui-form-cell radio>
+              <view slot="body">{{item.name}}</view>
+              <weui-radio slot="footer" checked="{{item.checked}}" />
+            </weui-form-cell>
+            <radio hidden value="{{item.value}}" checked="{{item.checked}}" />
+          </label>
+        </radio-group>
+        <weui-cell link>
+          <view slot="body">添加更多</view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="复选列表项">
+        <checkbox-group bindchange="checkboxChange">
+          <label wx:for="{{checkboxItems}}" wx:key="value">
+            <weui-form-cell checkbox>
+              <view slot="body">{{item.name}}</view>
+              <weui-checkbox slot="footer" checked="{{item.checked}}" />
+            </weui-form-cell>
+            <checkbox hidden value="{{item.value}}" checked="{{item.checked}}" />
+          </label>
+        </checkbox-group>
+        <weui-cell link>
+          <view slot="body">添加更多</view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="表单" tips="底部说明文字底部说明文字">
+        <weui-form-cell input>
+          <weui-label slot="header">QQ</weui-label>
+          <input slot="body" class="weui-input" placeholder="请输入 QQ" />
+        </weui-form-cell>
+
+        <weui-form-cell input vcode>
+          <weui-label slot="header">手机号</weui-label>
+          <input slot="body" class="weui-input" placeholder="请输入手机号" />
+          <view slot="footer" class="weui-vcode-btn">获取验证码</view>
+        </weui-form-cell>
+
+        <weui-form-cell input>
+          <weui-label slot="header">日期</weui-label>
+          <picker slot="body" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view class="weui-input">{{date}}</view>
+          </picker>
+        </weui-form-cell>
+
+        <weui-form-cell input>
+          <weui-label slot="header">时间</weui-label>
+          <picker slot="body" mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+            <view class="weui-input">{{time}}</view>
+          </picker>
+        </weui-form-cell>
+
+        <weui-form-cell input vcode>
+          <weui-label slot="header">验证码</weui-label>
+          <input slot="body" class="weui-input" placeholder="请输入验证码" />
+          <image slot="footer" class="weui-vcode-img" src="../../../node_modules/weui-wxss/dist/example/images/vcode.jpg" style="width: 108px" />
+        </weui-form-cell>
+      </weui-cells>
+
+      <weui-cells title="表单报错">
+        <weui-form-cell input warn>
+          <weui-label slot="header">卡号</weui-label>
+          <input slot="body" class="weui-input" placeholder="请输入卡号" />
+          <icon slot="footer" type="warn" size="23" color="#E64340" />
+        </weui-form-cell>
+      </weui-cells>
+
+      <weui-cells title="开关">
+        <weui-form-cell switch>
+          <view slot="body">标题文字</view>
+          <switch slot="footer" checked />
+        </weui-form-cell>
+      </weui-cells>
+
+      <weui-cells title="文本框">
+        <weui-form-cell input>
+          <input slot="body" class="weui-input" placeholder="请输入文本" />
+        </weui-form-cell>
+      </weui-cells>
+
+      <weui-cells title="文本域">
+        <weui-form-cell>
+          <view slot="body">
+            <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </weui-form-cell>
+      </weui-cells>
+
+      <weui-cells title="选择">
+        <weui-form-cell select select-position="before">
+          <view slot="header" style="width: 105px">
+            <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
+              <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+            </picker>
+          </view>
+          <view slot="body">
+            <input class="weui-input" placeholder="请输入号码" />
+          </view>
+        </weui-form-cell>
+      </weui-cells>
+
+      <weui-cells title="选择">
+        <weui-form-cell select select-position="after">
+          <picker slot="body" bindchange="bindAccountChange" value="{{accountIndex}}" range="{{accounts}}">
+            <view class="weui-select">{{accounts[accountIndex]}}</view>
+          </picker>
+        </weui-form-cell>
+        <weui-form-cell select select-position="after">
+          <weui-label slot="header">国家/地区</weui-label>
+          <picker slot="body" bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+            <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
+          </picker>
+        </weui-form-cell>
+      </weui-cells>
+
+      <checkbox-group bindchange="bindAgreeChange">
+        <label for="weuiAgree">
+          <weui-agreement checked="{{ isAgree }}">
+            阅读并同意
+            <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+          </weui-agreement>
+          <checkbox hidden id="weuiAgree" value="agree" checked="{{isAgree}}" />
+        </label>
+      </checkbox-group>
+
+      <weui-button-area>
+        <weui-button type="primary" bindtap="showTopTips">确定</weui-button>
+      </weui-button-area>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  data: {
+    showTopTips: false,
+
+    radioItems: [{
+        name: 'cell standard',
+        value: '0'
+      },
+      {
+        name: 'cell standard',
+        value: '1',
+        checked: true
+      },
+    ],
+    checkboxItems: [{
+        name: 'standard is dealt for u.',
+        value: '0',
+        checked: true
+      },
+      {
+        name: 'standard is dealicient for u.',
+        value: '1'
+      },
+    ],
+
+    date: '2016-09-01',
+    time: '12:01',
+
+    countryCodes: ['+86', '+80', '+84', '+87'],
+    countryCodeIndex: 0,
+
+    countries: [' 中国 ', ' 美国 ', ' 英国 '],
+    countryIndex: 0,
+
+    accounts: [' 微信号 ', 'QQ', 'Email'],
+    accountIndex: 0,
+
+    isAgree: false,
+  },
+  showTopTips: function () {
+    var that = this
+    this.setData({
+      showTopTips: true,
+    })
+    setTimeout(function () {
+      that.setData({
+        showTopTips: false,
+      })
+    }, 3000)
+  },
+  radioChange: function (e) {
+    console.log('radio 发生 change 事件，携带 value 值为：', e.detail.value)
+
+    var radioItems = this.data.radioItems
+    for (var i = 0, len = radioItems.length; i < len; ++i) {
+      radioItems[i].checked = radioItems[i].value == e.detail.value
+    }
+
+    this.setData({
+      radioItems: radioItems,
+    })
+  },
+  checkboxChange: function (e) {
+    console.log('checkbox 发生 change 事件，携带 value 值为：', e.detail.value)
+
+    var checkboxItems = this.data.checkboxItems,
+      values = e.detail.value
+    for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+      checkboxItems[i].checked = false
+
+      for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
+        if (checkboxItems[i].value == values[j]) {
+          checkboxItems[i].checked = true
+          break
+        }
+      }
+    }
+
+    this.setData({
+      checkboxItems: checkboxItems,
+    })
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value,
+    })
+  },
+  bindTimeChange: function (e) {
+    this.setData({
+      time: e.detail.value,
+    })
+  },
+  bindCountryCodeChange: function (e) {
+    console.log('picker country code 发生选择改变，携带值为', e.detail.value)
+
+    this.setData({
+      countryCodeIndex: e.detail.value,
+    })
+  },
+  bindCountryChange: function (e) {
+    console.log('picker country 发生选择改变，携带值为', e.detail.value)
+
+    this.setData({
+      countryIndex: e.detail.value,
+    })
+  },
+  bindAccountChange: function (e) {
+    console.log('picker account 发生选择改变，携带值为', e.detail.value)
+
+    this.setData({
+      accountIndex: e.detail.value,
+    })
+  },
+  bindAgreeChange: function (e) {
+    this.setData({
+      isAgree: !!e.detail.value.length,
+    })
+  },
+})
+</script>
+
+<style>
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-form.wxss';
+@import 'weui-wxss/dist/style/widget/weui-agree/weui-agree.wxss';
+
+</style>

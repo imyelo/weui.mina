@@ -35,7 +35,7 @@ Page({
         id: 'form',
         name: '表单',
         open: false,
-        pages: ['button', 'list'],
+        pages: ['button', 'list', 'input'],
         // pages: ['button', 'list', 'input', 'slider', 'uploader'],
       },
       // {
