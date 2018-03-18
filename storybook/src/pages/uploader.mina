@@ -1,0 +1,63 @@
+<config>
+{
+  "usingComponents": {
+    "weui-cells": "../../../lib/cells.mina",
+    "weui-cell": "../../../lib/cell.mina",
+    "weui-uploader": "../../../lib/uploader.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Uploader</view>
+      <view class="page__desc">上传组件</view>
+    </view>
+    <view class="page__bd">
+      <weui-cells>
+        <weui-cell>
+          <view slot="body">
+            <weui-uploader files="{{files}}" />
+          </view>
+        </weui-cell>
+      </weui-cells>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  onLoad: function(){
+    this.setData({
+      files: [
+        {
+          url: require('weui-wxss/dist/example/images/pic_160.png'),
+          error: false,
+          status: '',
+        },
+        {
+          url: require('weui-wxss/dist/example/images/pic_160.png'),
+          error: false,
+          status: '',
+        },
+        {
+          url: require('weui-wxss/dist/example/images/pic_160.png'),
+          error: false,
+          status: '',
+        },
+        {
+          url: require('weui-wxss/dist/example/images/pic_160.png'),
+          error: true,
+          status: '',
+        },
+        {
+          url: require('weui-wxss/dist/example/images/pic_160.png'),
+          error: false,
+          status: '50%',
+        },
+      ],
+    })
+  },
+})
+</script>

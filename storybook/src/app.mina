@@ -9,6 +9,7 @@
     "pages/button.mina",
     "pages/input.mina",
     "pages/slider.mina",
+    "pages/uploader.mina",
   ],
 }
 </config>

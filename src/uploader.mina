@@ -1,0 +1,96 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-uploader">
+    <view class="weui-uploader__hd">
+      <view class="weui-uploader__title">{{title}}</view>
+      <view class="weui-uploader__info">{{files.length}}/{{maxCount}}</view>
+    </view>
+    <view class="weui-uploader__bd">
+      <view class="weui-uploader__files">
+        <block wx:for="{{files}}" wx:key="index">
+          <view class="weui-uploader__file {{ item.error || item.status ? 'weui-uploader__file_status' : '' }}" bindtap="previewImage" data-index="{{index}}">
+            <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill" />
+            <view wx:if="{{item.error}}" class="weui-uploader__file-content">
+              <icon type="warn" size="23" color="#F43530"></icon>
+            </view>
+            <view wx:elif="{{item.status}}" class="weui-uploader__file-content">
+              {{item.status}}
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-uploader__input-box">
+        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    title: {
+      type: String,
+      value: '图片上传',
+    },
+    maxCount: {
+      type: Number,
+      value: 4,
+    },
+    // see https://weui.github.io/react-weui/docs/#/react-weui/docs/page/1/articles/29
+    files: {
+      type: Array,
+      value: [],
+    },
+    sizeType: {
+      type: Array,
+      value: ['original', 'compressed'],
+    },
+    sourceType: {
+      type: Array,
+      value: ['album', 'camera'],
+    },
+  },
+  ready () {
+    console.log(this.data)
+  },
+  methods: {
+    chooseImage () {
+      let { sizeType, sourceType } = this.data
+      wx.chooseImage({
+        sizeType,
+        sourceType,
+        success: ({ tempFilePaths }) => {
+          this.setData({
+            files: this.data.files.concat({
+              url: tempFilePaths,
+              error: false,
+              status: '',
+            }),
+          })
+        },
+      })
+    },
+    previewImage (event){
+      wx.previewImage({
+        current: this.data.files[event.currentTarget.index].url,
+        urls: this.data.files.map((file) => file.url),
+      })
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-uploader.wxss';
+
+:host {
+  display: block;
+}
+
+</style>
