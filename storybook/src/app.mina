@@ -8,6 +8,7 @@
     "pages/list.mina",
     "pages/button.mina",
     "pages/input.mina",
+    "pages/slider.mina",
   ],
 }
 </config>
