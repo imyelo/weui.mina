@@ -1,0 +1,60 @@
+<config>
+{
+  "usingComponents": {
+    "weui-footer": "../../../lib/footer.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page page-footer">
+    <view class="page__hd">
+      <view class="page__title">Footer</view>
+      <view class="page__desc">页脚</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <weui-footer>
+        <view slot="text">Copyright © 2008-2016 weui.io</view>
+      </weui-footer>
+
+      <weui-footer>
+        <view slot="links">
+          <navigator url="" class="weui-footer__link">底部链接</navigator>
+        </view>
+        <view slot="text">Copyright © 2008-2016 weui.io</view>
+      </weui-footer>
+
+      <weui-footer>
+        <view slot="links">
+          <navigator url="" class="weui-footer__link">底部链接</navigator>
+          <navigator url="" class="weui-footer__link">底部链接</navigator>
+        </view>
+        <view slot="text">Copyright © 2008-2016 weui.io</view>
+      </weui-footer>
+
+      <weui-footer fixed>
+        <view slot="links">
+          <navigator url="" class="weui-footer__link">WeUI首页</navigator>
+        </view>
+        <view slot="text">Copyright © 2008-2016 weui.io</view>
+      </weui-footer>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({})
+</script>
+
+<style lang="less">
+@import 'weui-wxss/dist/style/widget/weui-footer/weui-footer.wxss';
+
+.page-footer {
+  weui-footer {
+      margin-bottom: 50px;
+  }
+  weui-footer[fixed] {
+      margin-bottom: 0;
+  }
+}
+</style>

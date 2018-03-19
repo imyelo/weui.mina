@@ -1,0 +1,36 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-footer {{ fixed ? 'weui-footer_fixed-bottom' : '' }}">
+    <view class="weui-footer__links">
+      <slot name="links" />
+    </view>
+    <view class="weui-footer__text">
+      <slot name="text" />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    fixed: Boolean,
+  },
+})
+</script>
+
+<style>
+@import 'weui-wxss/dist/style/widget/weui-footer/weui-footer.wxss';
+
+:host {
+  display: block;
+}
+
+</style>
