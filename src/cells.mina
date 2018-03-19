@@ -6,7 +6,7 @@
 
 <template>
   <view>
-    <view class="weui-cells__title">{{ title }}</view>
+    <view wx:if="{{ title }}" class="weui-cells__title">{{ title }}</view>
     <view class="weui-cells weui-cells_after-title">
       <slot />
     </view>

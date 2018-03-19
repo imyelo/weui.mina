@@ -67,12 +67,12 @@ Page({
         open: false,
         pages: ['navbar', 'tabbar'],
       },
-      // {
-      //   id: 'search',
-      //   name: '搜索相关',
-      //   open: false,
-      //   pages: ['searchbar'],
-      // },
+      {
+        id: 'search',
+        name: '搜索相关',
+        open: false,
+        pages: ['searchbar'],
+      },
     ],
   },
   kindToggle: function (e) {

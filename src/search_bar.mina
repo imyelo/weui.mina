@@ -1,0 +1,82 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="{{ placeholder }}" value="{{ inputVal }}" focus="{{ inputShowed }}" bindinput="onInput" bindconfirm="onConfirm"
+          />
+          <view class="weui-icon-clear" wx:if="{{ inputVal.length > 0 }}" bindtap="onClear">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{ inputShowed }}" bindtap="onTapLabel">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{ !inputShowed }}" bindtap="onReset">取消</view>
+    </view>
+    <view wx:if="{{ inputVal.length > 0 }}">
+      <slot name="result" />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    placeholder: {
+      type: String,
+      value: '搜索',
+    },
+  },
+  data: {
+    inputShowed: false,
+    inputVal: '',
+  },
+  methods: {
+    onTapLabel () {
+      this.setData({
+        inputShowed: true,
+      })
+    },
+    onReset () {
+      this.setData({
+        inputVal: '',
+        inputShowed: false,
+      }, () => this.triggerEvent('reset'))
+    },
+    onClear () {
+      this.setData({
+        inputVal: '',
+      }, () => this.triggerEvent('clear'))
+    },
+    onInput (event) {
+      this.setData({
+        inputVal: event.detail.value,
+      }, () => this.triggerEvent('input'))
+    },
+    onConfirm (event) {
+      this.setData({
+        inputShowed: false,
+      }, () => this.triggerEvent('confirm'))
+    },
+  }
+})
+
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-searchbar/weui-searchbar.wxss';
+
+</style>

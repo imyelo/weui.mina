@@ -1,0 +1,61 @@
+<config>
+{
+  "usingComponents": {
+    "weui-search-bar": "../../../lib/search_bar.mina",
+    "weui-cells": "../../../lib/cells.mina",
+    "weui-cell": "../../../lib/cell.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">SearchBar</view>
+      <view class="page__desc">搜索栏</view>
+    </view>
+    <view class="page__bd">
+      <weui-search-bar bind:input="onInput" bind:submit="onSubmit" bind:clear="onClear" bind:reset="onReset">
+        <weui-cells slot="result" class="searchbar-result">
+          <weui-cell bindtap="onTap">
+            <view slot="body">实时搜索文本</view>
+          </weui-cell>
+          <weui-cell bindtap="onTap">
+            <view slot="body">实时搜索文本</view>
+          </weui-cell>
+          <weui-cell bindtap="onTap">
+            <view slot="body">实时搜索文本</view>
+          </weui-cell>
+          <weui-cell bindtap="onTap">
+            <view slot="body">实时搜索文本</view>
+          </weui-cell>
+        </weui-cells>
+      </weui-search-bar>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  onInput () {
+    console.log('input')
+  },
+  onSubmit () {
+    console.log('submit')
+  },
+  onClear () {
+    console.log('clear')
+  },
+  onReset () {
+    console.log('reset')
+  },
+  onTap (event) {
+    console.log('tap', event)
+  },
+})
+</script>
+
+<style>
+@import 'weui-wxss/dist/example/searchbar/searchbar.wxss';
+
+</style>

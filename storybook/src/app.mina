@@ -30,6 +30,7 @@
     "pages/toast.mina",
     "pages/navbar.mina",
     "pages/tabbar.mina",
+    "pages/searchbar.mina",
   ],
 }
 </config>
