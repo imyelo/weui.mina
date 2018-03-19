@@ -55,12 +55,13 @@ Page({
           'progress',
         ],
       },
-      // {
-      //   id: 'feedback',
-      //   name: '操作反馈',
-      //   open: false,
-      //   pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast'],
-      // },
+      {
+        id: 'feedback',
+        name: '操作反馈',
+        open: false,
+        pages: ['actionsheet', 'dialog', 'picker', 'toast'],
+        // pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast'],
+      },
       // {
       //   id: 'nav',
       //   name: '导航相关',

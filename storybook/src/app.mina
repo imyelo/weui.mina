@@ -21,6 +21,10 @@
     "pages/panel.mina",
     "pages/preview.mina",
     "pages/progress.mina",
+    "pages/actionsheet.mina",
+    "pages/dialog.mina",
+    "pages/picker.mina",
+    "pages/toast.mina",
   ],
 }
 </config>

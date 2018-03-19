@@ -1,0 +1,62 @@
+<config>
+{
+  "usingComponents": {
+    "weui-button": "../../../lib/button.mina",
+    "weui-button-area": "../../../lib/button_area.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Picker</view>
+      <view class="page__desc">选择器，这里使用小程序原生的picker。</view>
+    </view>
+    <view class="page__bd">
+      <weui-button-area>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <weui-button type="default">单列选择器</weui-button>
+        </picker>
+        <picker class="weui-btn" mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+          <weui-button type="default">时间选择器</weui-button>
+        </picker>
+        <picker class="weui-btn" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <weui-button type="default">日期选择器</weui-button>
+        </picker>
+      </weui-button-area>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  data: {
+    array: ['美国', '中国', '巴西', '日本'],
+    index: 0,
+    date: '2016-09-01',
+    time: '12:01',
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value,
+    })
+  },
+  bindDateChange: function(e) {
+    this.setData({
+      date: e.detail.value,
+    })
+  },
+  bindTimeChange: function(e) {
+    this.setData({
+      time: e.detail.value,
+    })
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/example/picker/picker.wxss';
+
+</style>

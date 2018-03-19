@@ -1,0 +1,42 @@
+<config>
+{
+  "usingComponents": {
+    "weui-button": "../../../lib/button.mina",
+    "weui-button-area": "../../../lib/button_area.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">ActionSheet</view>
+      <view class="page__desc">弹出式菜单，采用小程序原生的actionsheet</view>
+    </view>
+    <view class="page__bd">
+      <weui-button-area>
+        <weui-button type="default" bindtap="open">ActionSheet</weui-button>
+      </weui-button-area>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  open () {
+    wx.showActionSheet({
+      itemList: ['A', 'B', 'C'],
+      success (res) {
+        if (!res.cancel) {
+          console.log(res.tapIndex)
+        }
+      },
+    })
+  },
+})
+</script>
+
+<style>
+@import 'weui-wxss/dist/example/actionsheet/actionsheet.wxss';
+
+</style>
