@@ -1,0 +1,60 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__label">{{ header.label }}</view>
+      <view class="weui-form-preview__value_in-hd">{{ header.value }}</view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view wx:for="{{ items }}" wx:key="index" class="weui-form-preview__item">
+        <view class="weui-form-preview__label">{{ item.label }}</view>
+        <view class="weui-form-preview__value">{{ item.value }}</view>
+      </view>
+    </view>
+    <view wx:if="{{ actions.length > 0 }}" class="weui-form-preview__ft">
+      <view wx:if="{{ actions[1] }}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="onTapSecondary">{{ actions[1] }}</view>
+      <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="onTapPrimary">{{ actions[0] }}</view>
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    // Header {
+    //   <String> label
+    //   <String> value
+    // }
+    header: Object,
+    // Item {
+    //   <String> label
+    //   <String> value
+    // }
+    items: Array,
+    // <String> Action
+    actions: Array,
+  },
+  methods: {
+    onTapPrimary () {
+      this.triggerEvent('tapprimary')
+    },
+    onTapSecondary () {
+      this.triggerEvent('tapsecondary')
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-form/weui-form-preview.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

@@ -19,6 +19,7 @@
     "pages/icons.mina",
     "pages/loadmore.mina",
     "pages/panel.mina",
+    "pages/preview.mina",
   ],
 }
 </config>
