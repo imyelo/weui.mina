@@ -43,7 +43,7 @@ Component({
 :host {
   display: block;
   box-sizing: border-box;
-  border-top: 1px solid hsla(0, 0%, 85%, 0.5);
+  border-top: 1rpx solid #e5e5e5;
 }
 
 /** not supported by wechat yet **/

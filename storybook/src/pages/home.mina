@@ -50,7 +50,7 @@ Page({
           'grid',
           'icons',
           'loadmore',
-          // 'panel',
+          'panel',
           // 'preview',
           // 'progress',
         ],

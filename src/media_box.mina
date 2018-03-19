@@ -1,0 +1,69 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-media-box weui-media-box_{{ type }}">
+    <block wx:if="{{ type === 'appmsg' }}">
+      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <image class="weui-media-box__thumb" src="{{ thumbnail }}" />
+      </view>
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title">{{ title }}</view>
+        <view class="weui-media-box__desc">{{ description }}</view>
+      </view>
+    </block>
+    <block wx:elif="{{ type === 'text' }}">
+      <view class="weui-media-box__title weui-media-box__title_in-text">{{ title }}</view>
+      <view class="weui-media-box__desc">{{ description }}</view>
+      <view wx:if="{{ metas.length > 0 }}" class="weui-media-box__info">
+        <block wx:for="{{ metas }}" wx:key="index">
+          <view class="weui-media-box__info__meta {{ item.extra ? 'weui-media-box__info__meta_extra' : '' }}">{{ item.label }}</view>
+        </block>
+      </view>
+    </block>
+    <block wx:elif="{{ type === 'small-appmsg' }}">
+      <slot />
+    </block>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    // see https://weui.github.io/react-weui/docs/#/react-weui/docs/page/1/articles/44
+    // Options: 'appmsg', 'text, 'small_appmsg'
+    type: String,
+    thumbnail: String,
+    title: String,
+    description: String,
+    // Meta {
+    //   <Boolean> extra
+    //   <String> label
+    // }
+    metas: Array,
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-media-box/weui-media-box.wxss';
+@import 'weui-wxss/dist/style/widget/weui-cell/weui-cell.wxss';
+
+:host {
+  display: block;
+  border-top: 1rpx solid #e5e5e5;
+}
+
+.weui-media-box {
+  weui-cells {
+    @extend weui-cells_in-small-appmsg;
+  }
+}
+
+</style>

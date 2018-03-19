@@ -1,0 +1,43 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-panel {{ access ? 'weui-panel_access' : '' }}">
+    <view class="weui-panel__hd">
+      <slot name="header" />
+    </view>
+    <view class="weui-panel__bd">
+      <slot name="body" />
+    </view>
+    <view class="weui-panel__ft">
+      <slot name="footer" />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    access: {
+      type: Boolean,
+      value: false,
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-panel/weui-panel.wxss';
+
+:host {
+  display: block;
+  margin-top: 10px;
+}
+
+</style>
