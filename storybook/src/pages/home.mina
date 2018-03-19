@@ -52,7 +52,7 @@ Page({
           'loadmore',
           'panel',
           'preview',
-          // 'progress',
+          'progress',
         ],
       },
       // {

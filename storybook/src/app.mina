@@ -20,6 +20,7 @@
     "pages/loadmore.mina",
     "pages/panel.mina",
     "pages/preview.mina",
+    "pages/progress.mina",
   ],
 }
 </config>

@@ -1,0 +1,73 @@
+<config>
+{
+  "usingComponents": {
+    "weui-progress": "../../../lib/progress.mina",
+    "weui-button": "../../../lib/button.mina",
+    "weui-button-area": "../../../lib/button_area.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Progress</view>
+      <view class="page__desc">进度条，这里采用小程序原生的progress</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <weui-progress value="0" showCancel="{{ false }}" />
+      <weui-progress value="0" bind:tapcancel="onTapCancel" />
+      <weui-progress value="50" bind:tapcancel="onTapCancel" />
+      <weui-progress value="80" bind:tapcancel="onTapCancel" />
+      <weui-progress value="{{ progress }}" bind:tapcancel="onTapCancel" />
+      <weui-button-area>
+        <weui-button type="primary" bindtap="upload" disabled="{{ disabled }}">上传</weui-button>
+      </weui-button-area>
+    </view>
+  </view>
+</template>
+
+<script>
+function _next () {
+  if (this.data.progress >= 100) {
+    this.setData({
+      disabled: false,
+    })
+    return true
+  }
+
+  this.setData({
+    progress: ++this.data.progress,
+  })
+
+  setTimeout(() => _next.call(this), 20)
+}
+
+Page({
+  data: {
+    progress: 0,
+    disabled: false,
+  },
+  upload () {
+    if (this.data.disabled) {
+      return
+    }
+
+    this.setData({
+      progress: 0,
+      disabled: true,
+    })
+
+    _next.call(this)
+  },
+  onTapCancel () {
+    console.log('tap cancel')
+  },
+})
+</script>
+
+<style lang="postcss">
+weui-progress{
+  margin-bottom: 24px;
+}
+</style>

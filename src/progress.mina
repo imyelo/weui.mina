@@ -1,0 +1,42 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-progress">
+    <view class="weui-progress__bar">
+      <progress percent="{{ value }}" stroke-width="3" />
+    </view>
+    <view wx:if="{{ showCancel }}" class="weui-progress__opr" bindtap="onTapCancel">
+      <icon type="cancel" size="22"></icon>
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    value: Number,
+    showCancel: {
+      type: Boolean,
+      value: true,
+    },
+  },
+  methods: {
+    onTapCancel () {
+      this.triggerEvent('tapcancel')
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-progress/weui-progress.wxss';
+
+:host {
+  display: block;
+}
+
+</style>
