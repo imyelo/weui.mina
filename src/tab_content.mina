@@ -1,0 +1,25 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-tab__content">
+    <slot />
+  </view>
+</template>
+
+<script>
+Component({
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-tab/weui-tab.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

@@ -1,0 +1,46 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{ navbars }}" wx:key="*this">
+        <view data-index="{{ index }}" class="weui-navbar__item {{ activeIndex == index ? 'weui-bar__item_on' : '' }}" bindtap="onTapNavbarItem">
+          <view class="weui-navbar__title">{{ item }}</view>
+        </view>
+      </block>
+    </view>
+    <view class="weui-tab__panel">
+      <slot />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    // <String> Tab
+    navbars: Array,
+    activeIndex: Number,
+  },
+  methods: {
+    onTapNavbarItem (event) {
+      let { index } = event.currentTarget.dataset
+      this.triggerEvent('tapnavbaritem', { index })
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-tab/weui-tab.wxss';
+@import 'weui-wxss/dist/style/widget/weui-tab/weui-navbar.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

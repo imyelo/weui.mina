@@ -61,12 +61,12 @@ Page({
         open: false,
         pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast'],
       },
-      // {
-      //   id: 'nav',
-      //   name: '导航相关',
-      //   open: false,
-      //   pages: ['navbar', 'tabbar'],
-      // },
+      {
+        id: 'nav',
+        name: '导航相关',
+        open: false,
+        pages: ['navbar', 'tabbar'],
+      },
       // {
       //   id: 'search',
       //   name: '搜索相关',

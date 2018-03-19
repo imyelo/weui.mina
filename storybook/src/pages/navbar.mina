@@ -1,0 +1,46 @@
+<config>
+{
+  "usingComponents": {
+    "weui-tab": "../../../lib/tab.mina",
+    "weui-tab-content": "../../../lib/tab_content.mina",
+  }
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__bd">
+      <weui-tab navbars="{{ ['选项一', '选项二', '选项三'] }}" activeIndex="{{ activeIndex }}" bind:tapnavbaritem="onTapNavbarItem">
+        <weui-tab-content class="tab-content" wx:if="{{activeIndex === 0}}">选项一的内容</weui-tab-content>
+        <weui-tab-content class="tab-content" wx:elif="{{activeIndex === 1}}">选项二的内容</weui-tab-content>
+        <weui-tab-content class="tab-content" wx:elif="{{activeIndex === 2}}">选项三的内容</weui-tab-content>
+      </weui-tab>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  data: {
+    activeIndex: 0,
+  },
+  onTapNavbarItem (event) {
+    console.log(event)
+    this.setData({
+      activeIndex: event.detail.index,
+    })
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/example/navbar/navbar.wxss';
+
+.tab-content {
+  text-align: center;
+  margin: 48px 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+</style>

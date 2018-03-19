@@ -28,6 +28,8 @@
     "pages/msg_success.mina",
     "pages/picker.mina",
     "pages/toast.mina",
+    "pages/navbar.mina",
+    "pages/tabbar.mina",
   ],
 }
 </config>
