@@ -12,6 +12,7 @@
     "pages/uploader.mina",
     "pages/article.mina",
     "pages/badge.mina",
+    "pages/flex.mina",
   ],
 }
 </config>

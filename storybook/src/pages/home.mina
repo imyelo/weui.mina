@@ -44,7 +44,7 @@ Page({
         pages: [
           'article',
           'badge',
-          // 'flex',
+          'flex',
           // 'footer',
           // 'gallery',
           // 'grid',
