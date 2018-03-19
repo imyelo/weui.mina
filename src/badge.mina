@@ -1,0 +1,44 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-badge {{ dot ? 'weui-badge_dot' : '' }} preset-{{ preset }}">
+    <slot />
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    dot: Boolean,
+    // see https://weui.github.io/react-weui/docs/#/react-weui/docs/page/1/articles/70
+    // include 'header', 'body', 'footer'
+    preset: String,
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-tips/weui-badge.wxss';
+
+:host {
+  display: inline;
+}
+
+.preset-header {
+  position: absolute;
+  top: -.4em;
+  right: -.4em;
+}
+.preset-body {
+  margin-left: 5px;
+}
+.preset-footer {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+</style>

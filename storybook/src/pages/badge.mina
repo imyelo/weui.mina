@@ -1,0 +1,73 @@
+<config>
+{
+  "usingComponents": {
+    "weui-cells": "../../../lib/cells.mina",
+    "weui-cell": "../../../lib/cell.mina",
+    "weui-badge": "../../../lib/badge.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Badge</view>
+      <view class="page__desc">徽章</view>
+    </view>
+
+    <view class="page__bd">
+      <weui-cells title="新消息提示跟摘要信息后，统一在列表右侧">
+        <weui-cell access>
+          <view slot="body">单行列表</view>
+          <view slot="footer" style="font-size: 0">
+            <view style="display: inline-block;vertical-align:middle; font-size: 17px;">详细信息</view>
+            <weui-badge dot preset="footer" />
+          </view>
+        </weui-cell>
+      </weui-cells>
+
+      <weui-cells title="未读数红点跟在主题信息后，统一在列表左侧">
+        <weui-cell>
+          <view slot="header">
+            <view style="position: relative;margin-right: 10px;">
+              <image src="~weui-wxss/dist/example/images/pic_160.png" style="width: 50px; height: 50px; display: block" />
+              <weui-badge preset="header">8</weui-badge>
+            </view>
+          </view>
+          <view slot="body">
+            <view>联系人名称</view>
+            <view style="font-size: 13px;color: #888888;">摘要信息</view>
+          </view>
+        </weui-cell>
+        <weui-cell access>
+          <view slot="body">
+            <view style="display: inline-block; vertical-align: middle">单行列表</view>
+            <weui-badge preset="body">8</weui-badge>
+          </view>
+        </weui-cell>
+        <weui-cell access>
+          <view slot="body">
+            <view style="display: inline-block; vertical-align: middle">单行列表</view>
+            <weui-badge preset="body">8</weui-badge>
+          </view>
+          <view slot="footer">详细信息</view>
+        </weui-cell>
+        <weui-cell access>
+          <view slot="body">
+            <view style="display: inline-block; vertical-align: middle">单行列表</view>
+            <weui-badge preset="body">New</weui-badge>
+          </view>
+        </weui-cell>
+      </weui-cells>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({})
+</script>
+
+<style>
+@import 'weui-wxss/dist/style/widget/weui-tips/weui-badge.wxss';
+
+</style>
