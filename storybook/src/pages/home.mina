@@ -48,7 +48,7 @@ Page({
           'footer',
           'gallery',
           'grid',
-          // 'icons',
+          'icons',
           // 'loadmore',
           // 'panel',
           // 'preview',

@@ -16,6 +16,7 @@
     "pages/footer.mina",
     "pages/gallery.mina",
     "pages/grid.mina",
+    "pages/icons.mina",
   ],
 }
 </config>
