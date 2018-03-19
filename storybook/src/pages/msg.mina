@@ -1,0 +1,43 @@
+<config>
+{
+  "usingComponents": {
+    "weui-button": "../../../lib/button.mina",
+    "weui-button-area": "../../../lib/button_area.mina",
+  }
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Msg</view>
+      <view class="page__desc">提示页</view>
+    </view>
+    <view class="page__bd">
+      <weui-button-area>
+        <weui-button type="default" bindtap="openSuccess">成功提示页</weui-button>
+        <weui-button type="default" bindtap="openFail">失败提示页</weui-button>
+      </weui-button-area>
+    </view>
+  </view>
+</template>
+
+<script>
+Page({
+  openSuccess () {
+    wx.navigateTo({
+      url: 'msg_success',
+    })
+  },
+  openFail () {
+    wx.navigateTo({
+      url: 'msg_fail',
+    })
+  },
+})
+</script>
+
+<style>
+@import 'weui-wxss/dist/example/msg/msg.wxss';
+
+</style>

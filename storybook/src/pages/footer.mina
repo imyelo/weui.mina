@@ -19,22 +19,22 @@
 
       <weui-footer>
         <view slot="links">
-          <navigator url="" class="weui-footer__link">底部链接</navigator>
+          <navigator url="">底部链接</navigator>
         </view>
         <view slot="text">Copyright © 2008-2016 weui.io</view>
       </weui-footer>
 
       <weui-footer>
         <view slot="links">
-          <navigator url="" class="weui-footer__link">底部链接</navigator>
-          <navigator url="" class="weui-footer__link">底部链接</navigator>
+          <navigator url="">底部链接</navigator>
+          <navigator url="">底部链接</navigator>
         </view>
         <view slot="text">Copyright © 2008-2016 weui.io</view>
       </weui-footer>
 
       <weui-footer fixed>
         <view slot="links">
-          <navigator url="" class="weui-footer__link">WeUI首页</navigator>
+          <navigator url="">WeUI首页</navigator>
         </view>
         <view slot="text">Copyright © 2008-2016 weui.io</view>
       </weui-footer>
@@ -47,8 +47,6 @@ Page({})
 </script>
 
 <style lang="less">
-@import 'weui-wxss/dist/style/widget/weui-footer/weui-footer.wxss';
-
 .page-footer {
   weui-footer {
       margin-bottom: 50px;

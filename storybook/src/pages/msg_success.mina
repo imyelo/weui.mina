@@ -1,0 +1,40 @@
+<config>
+{
+  "usingComponents": {
+    "weui-message": "../../../lib/message.mina",
+    "weui-footer": "../../../lib/footer.mina",
+  }
+}
+</config>
+
+<template>
+  <view class="page">
+    <weui-message type="success" title="操作成功" buttons="{{ [ { label: '推荐操作', type: 'primary' }, { label: '辅助操作' } ] }}" bind:tapbutton="onTapButton">
+      <view slot="description">
+        内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现
+        <navigator url="">文字链接</navigator>
+      </view>
+      <view slot="footer">
+        <weui-footer>
+          <view slot="links">
+            <navigator url="">底部链接文本</navigator>
+          </view>
+          <view slot="text">Copyright © 2008-2016 weui.io</view>
+        </weui-footer>
+      </view>
+    </weui-message>
+  </view>
+</template>
+
+<script>
+Page({
+  onTapButton (event) {
+    console.log('tap button', event.detail.index, event)
+  },
+})
+</script>
+
+<style>
+@import 'weui-wxss/dist/example/msg/msg_success.wxss';
+
+</style>

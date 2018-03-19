@@ -1,0 +1,66 @@
+<config>
+{
+  "component": true,
+  "usingComponents": {
+    "weui-button": "./button.mina",
+    "weui-button-area": "./button_area.mina"
+  }
+}
+</config>
+
+<template>
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <icon type="{{ type }}" size="93"></icon>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">{{ title }}</view>
+      <view class="weui-msg__desc">
+        <slot name="description" />
+      </view>
+    </view>
+    <view class="weui-msg__opr-area">
+      <weui-button-area>
+        <weui-button wx:for="{{ buttons }}" wx:key="index" type="{{ item.type }}" bindtap="onTapButton" data-index="{{ index }}">{{ item.label }}</weui-button>
+      </weui-button-area>
+    </view>
+    <view class="weui-msg__extra-area">
+      <slot name="footer" />
+    </view>
+  </view>
+</template>
+
+<script>
+Component({
+  options: {
+    multipleSlots: true,
+  },
+  properties: {
+    title: String,
+    type: {
+      type: String,
+      value: 'success',
+    },
+    // Button {
+    //   <String> type
+    //   <String> label
+    // }
+    buttons: Array,
+  },
+  methods: {
+    onTapButton (event) {
+      let index = event.currentTarget.dataset.index
+      this.triggerEvent('tapbutton', { index })
+    },
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-page/weui-msg.wxss';
+
+.weui-msg__desc navigator {
+  @extend .weui-msg__link;
+}
+
+</style>

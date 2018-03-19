@@ -33,4 +33,8 @@ Component({
   display: block;
 }
 
+.weui-footer__links navigator {
+  @extend .weui-footer__link;
+}
+
 </style>
