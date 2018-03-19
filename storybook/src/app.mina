@@ -14,6 +14,8 @@
     "pages/badge.mina",
     "pages/flex.mina",
     "pages/footer.mina",
+    "pages/gallery.mina",
+    "pages/grid.mina",
   ],
 }
 </config>

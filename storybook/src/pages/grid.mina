@@ -1,0 +1,35 @@
+<config>
+{
+  "usingComponents": {
+    "weui-grids": "../../../lib/grids.mina",
+  },
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Grid</view>
+      <view class="page__desc">九宫格</view>
+    </view>
+    <view class="page__bd">
+      <weui-grids grids="{{grids}}" />
+    </view>
+  </view>
+</template>
+
+<script>
+function range (n) {
+  return Array.apply(null, new Array(n))
+}
+
+Page({
+  data: {
+    grids: range(9).map((i) => ({
+      url: '',
+      icon: require('weui-wxss/dist/example/images/icon_tabbar.png'),
+      label: 'Grid',
+    })),
+  },
+})
+</script>
