@@ -24,7 +24,7 @@
           </view>
         </block>
       </view>
-      <view class="weui-uploader__input-box">
+      <view wx:if="{{maxCount > files.length}}" class="weui-uploader__input-box">
         <view class="weui-uploader__input" bindtap="chooseImage"></view>
       </view>
     </view>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+const HTTP_OR_HTTPS_REGEXP = /^https?:\/\//
+
 Component({
   properties: {
     title: {
@@ -43,6 +45,11 @@ Component({
       value: 4,
     },
     // see https://weui.github.io/react-weui/docs/#/react-weui/docs/page/1/articles/29
+    // File {
+    //   <Boolean> error
+    //   <String> status
+    //   <String> url
+    // }
     files: {
       type: Array,
       value: [],
@@ -56,30 +63,40 @@ Component({
       value: ['album', 'camera'],
     },
   },
-  ready () {
-    console.log(this.data)
-  },
   methods: {
     chooseImage () {
-      let { sizeType, sourceType } = this.data
+      let { sizeType, sourceType, maxCount } = this.data
+      let count = maxCount - this.data.files.length
+      if (count <= 0) {
+        return
+      }
+
       wx.chooseImage({
+        count,
         sizeType,
         sourceType,
         success: ({ tempFilePaths }) => {
           this.setData({
-            files: this.data.files.concat({
-              url: tempFilePaths,
-              error: false,
-              status: '',
-            }),
+            files: this.data.files.concat(tempFilePaths.map((url) => {
+              return {
+                error: false,
+                status: '',
+                url,
+              }
+            })),
           })
         },
       })
     },
-    previewImage (event){
+    previewImage (event) {
+      let current = this.data.files[event.currentTarget.dataset.index].url
+      if (!HTTP_OR_HTTPS_REGEXP.test(current)) {
+        return
+      }
+
       wx.previewImage({
-        current: this.data.files[event.currentTarget.index].url,
-        urls: this.data.files.map((file) => file.url),
+        current,
+        urls: this.data.files.filter((file) => HTTP_OR_HTTPS_REGEXP.test(file.url)).map((file) => file.url),
       })
     },
   },

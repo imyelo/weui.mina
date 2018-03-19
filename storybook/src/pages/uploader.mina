@@ -18,7 +18,7 @@
       <weui-cells>
         <weui-cell>
           <view slot="body">
-            <weui-uploader files="{{files}}" />
+            <weui-uploader files="{{files}}" max-count="24" />
           </view>
         </weui-cell>
       </weui-cells>
