@@ -1,0 +1,32 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="weui-loadmore {{ showLine ? 'weui-loadmore_line' : '' }} {{ showDot ? 'weui-loadmore_dot' : '' }}">
+    <view wx:if="{{ loading }}" class="weui-loading"></view>
+    <view class="weui-loadmore__tips {{ showLine ? 'weui-loadmore__tips_in-line' : '' }} {{ showDot ? 'weui-loadmore__tips_in-dot' : '' }}"><slot /></view>
+  </view>
+</template>
+
+<script>
+Component({
+  properties: {
+    loading: Boolean,
+    showLine: Boolean,
+    showDot: Boolean,
+  },
+})
+</script>
+
+<style lang="postcss">
+@import 'weui-wxss/dist/style/widget/weui-loading/weui-loading.wxss';
+@import 'weui-wxss/dist/style/widget/weui-tips/weui-loadmore.wxss';
+
+:host {
+  display: block;
+}
+
+</style>

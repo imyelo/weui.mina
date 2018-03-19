@@ -1,0 +1,30 @@
+<config>
+{
+  "usingComponents": {
+    "weui-loadmore": "../../../lib/loadmore.mina"
+  }
+}
+</config>
+
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Loadmore</view>
+      <view class="page__desc">加载更多</view>
+    </view>
+    <view class="page__bd">
+      <weui-loadmore loading>正在加载</weui-loadmore>
+      <weui-loadmore showLine>暂无数据</weui-loadmore>
+      <weui-loadmore showLine showDot />
+    </view>
+  </view>
+</template>
+
+<script>
+Page({})
+</script>
+
+<style>
+@import 'weui-wxss/dist/example/loadmore/loadmore.wxss';
+
+</style>

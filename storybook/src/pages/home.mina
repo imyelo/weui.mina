@@ -49,7 +49,7 @@ Page({
           'gallery',
           'grid',
           'icons',
-          // 'loadmore',
+          'loadmore',
           // 'panel',
           // 'preview',
           // 'progress',
