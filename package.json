@@ -1,6 +1,6 @@
 {
   "name": "@tinajs/weui.mina",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The WeUI as mina-components",
   "scripts": {
     "prepublishOnly": "npm run build",
